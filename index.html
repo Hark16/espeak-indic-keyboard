@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eSpeak Indic Keyboard - Accessible Keyboard for the Visually Impaired</title>
+    <meta name="description" content="0% vibration, zero-latency, real-time eSpeak TTS, voice input, and Hindi typing accessible Android keyboard developed by Harish Kumar Verma.">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1E1E1E;
+            --card-border: #333333;
+            --accent-gold: #FFD700;
+            --accent-green: #00E676;
+            --accent-blue: #00B0FF;
+            --text-primary: #FFFFFF;
+            --text-secondary: #CCCCCC;
+            --highlight-box: #262626;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Devanagari", Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(180deg, #1A1A1A 0%, #121212 100%);
+            border-bottom: 2px solid var(--accent-gold);
+            padding: 40px 20px 30px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: var(--accent-gold);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        .download-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            margin: 25px 0 35px;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.15);
+        }
+
+        .btn-download {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: #000000;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 16px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-download:hover, .btn-download:focus {
+            background-color: #FFC400;
+            transform: scale(1.03);
+            outline: 3px solid #FFFFFF;
+        }
+
+        .file-info {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .section-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 25px 22px;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #333333;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            margin: 14px 0 8px;
+        }
+
+        ul, ol {
+            padding-left: 24px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* TalkBack Settings Callout Box */
+        .talkback-tip {
+            background-color: #1A271F;
+            border-left: 6px solid var(--accent-green);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .talkback-tip h2 {
+            color: var(--accent-green);
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 10px;
+        }
+
+        /* Problem & Solution Card */
+        .solution-card {
+            background-color: #162436;
+            border-left: 6px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 22px;
+            margin: 25px 0;
+        }
+
+        .solution-card h2 {
+            color: var(--accent-blue);
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 12px;
+        }
+
+        .badge {
+            background-color: #2E7D32;
+            color: #FFFFFF;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .disclaimer-box {
+            background-color: #2A2218;
+            border-left: 6px solid #FF9800;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .disclaimer-box h2 {
+            color: #FFB74D;
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            border-top: 1px solid #333333;
+            text-align: center;
+            padding: 35px 20px 40px;
+            color: #888888;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            background-color: #0A0A0A;
+        }
+
+        .footer-highlight {
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.7rem; }
+            .btn-download { width: 100%; font-size: 1.15rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header role="banner">
+        <div class="container">
+            <h1>eSpeak Indic Keyboard</h1>
+            <p class="tagline">दृष्टिबाधित (Visually Impaired) साथियों के लिए विशेष रूप से डिज़ाइन किया गया सुगम और तेज़ कीबोर्ड<br>
+            <span style="font-size: 0.95rem; color: #AAAAAA;">0% Vibration • Zero-Latency eSpeak TTS • Hindi Transliteration • Voice Typing</span></p>
+        </div>
+    </header>
+
+    <main class="container" role="main">
+
+        <!-- Download Section -->
+        <section class="download-card" aria-label="Download Section">
+            <h2 style="border:none; margin-bottom: 12px; color: #FFFFFF;">APK डाउनलोड करें / Download Latest APK</h2>
+            <p style="margin-bottom: 20px; color: var(--text-secondary);">Android 8.0 से Android 14+ के लिए पूर्णतः संगत (Compatible)</p>
+            <a href="EspeakIndicKeyboard-Debug.apk" class="btn-download" role="button" aria-label="Download eSpeak Indic Keyboard APK file">
+                ⬇️ Download APK (v1.0)
+            </a>
+            <p class="file-info">साइज़: ~5.2 MB | 100% मुफ़्त एवं सुरक्षित (Safe & Offline)</p>
+        </section>
+
+        <!-- TalkBack Pro-Tip Box -->
+        <section class="talkback-tip" aria-label="TalkBack Recommended Settings">
+            <h2>💡 सर्वोत्तम अनुभव के लिए TalkBack सेटिंग्स (ज़रूरी सुझाव)</h2>
+            <p style="margin-bottom: 12px;">यह सेटिंग अनिवार्य (mandatory) नहीं है, परंतु टाइपिंग को <strong>अत्यधिक सुगम, तेज़ और स्मूथ</strong> बनाने के लिए यह 2 सेटिंग्स अवश्य कर लें:</p>
+            
+            <ol>
+                <li>
+                    <strong>Keyboard Echo को "Words Only" पर रखें:</strong><br>
+                    अपने फ़ोन के <em>TalkBack Settings &gt; Verbosity (वाचालता) &gt; Keyboard echo</em> में जाएं और इसे <strong>"Words only" (केवल शब्द)</strong> चुन लें।<br>
+                    <small style="color: #A5D6A7;">(फ़ायदा: हमारा कीबोर्ड हर अक्षर को छूते ही अपने इन-बिल्ट eSpeak से तुरंत बोलता है। इससे टॉकबैक बीच में इंटरप्ट नहीं करेगा और आवाज़ टकराएगी नहीं।)</small>
+                </li>
+                <li>
+                    <strong>लिस्ट/ग्रिड की संख्या बताने वाली सेटिंग बंद करें:</strong><br>
+                    <em>TalkBack Settings &gt; Verbosity &gt; Speak list and grid info (सूची और ग्रिड जानकारी)</em> को <strong>Off (बंद)</strong> कर दें।<br>
+                    <small style="color: #A5D6A7;">(फ़ायदा: टाइप करते समय टॉकबैक "row 1 of 6, column 3" जैसी संख्याएं बोलकर रुकावट पैदा नहीं करेगा।)</small>
+                </li>
+            </ol>
+            <p style="font-weight: bold; color: #C8E6C9;">👉 परिणाम: टाइपिंग 100% स्मूथ होगी और आप बिना किसी विलंब (zero latency) के बहुत तेज़ी से लिख पाएंगे।</p>
+        </section>
+
+        <!-- The Big Problem Solved: Natural Voice in Phone + Zero Latency in Keyboard -->
+        <section class="solution-card" aria-label="Why this keyboard was created">
+            <h2>🎯 यह कीबोर्ड क्यों बनाया गया? (The Big Problem It Solves)</h2>
+            <p style="font-size: 1.05rem; margin-bottom: 14px; color: #E0E0E0;">
+                <strong>TalkBack में प्राकृतिक आवाज़ (Google TTS) + टाइपिंग में शून्य विलंब (Zero-Latency eSpeak) का सबसे बेहतरीन तालमेल!</strong>
+            </p>
+
+            <h3 style="color: #90CAF9; margin-top: 10px;">🔴 पहले दृष्टिबाधित यूज़र्स के सामने क्या समस्या थी?</h3>
+            <ul style="margin-bottom: 16px;">
+                <li><strong>ETI Eloquence की सीमा:</strong> पहले फ़ास्ट टाइपिंग और कम लेटेंसी के लिए <em>ETI Eloquence</em> का इस्तेमाल किया जाता था। परंतु वह एक सशुल्क (Paid) ऐप है और उसकी आवाज़ पूरी तरह रोबोटिक (Robotic) होती है, जिससे पूरा फ़ोन रोबोट जैसी आवाज़ में बोलता है।</li>
+                <li><strong>eSpeak TTS की सीमा:</strong> यदि पूरे TalkBack में eSpeak NG को मुख्य TTS बना दिया जाए, तो भी पूरा फ़ोन रोबोटिक आवाज़ में पढ़ता है जो लंबे समय तक सुनने में असहज लगता है।</li>
+                <li><strong>Google TTS (GTTS) और Gboard की लेटेंसी:</strong> आजकल TalkBack में <em>Speech Services by Google (GTTS)</em> का उपयोग होता है, जिसकी आवाज़ अत्यंत प्राकृतिक (Natural), स्पष्ट और सुनने में बहुत सुखद है। परंतु जब हम Gboard या किसी सामान्य कीबोर्ड पर टाइप करते हैं, तो Google TTS के भारी प्रोसेसिंग की वजह से भारी <strong>लेटेंसी (विलंब / Lag)</strong> आती है — उंगली उठाने के काफ़ी देर बाद आवाज़ आती है, जिससे टाइपिंग स्पीड बहुत धीमी हो जाती थी।</li>
+            </ul>
+
+            <h3 style="color: #69F0AE; margin-top: 14px;">🟢 eSpeak Indic Keyboard का क्रांतिकारी समाधान:</h3>
+            <p style="margin-bottom: 12px;">
+                अब आपको कोई समझौता नहीं करना पड़ेगा! आप अपने <strong>TalkBack में Google TTS (GTTS)</strong> को ही चालू रखें ताकि फ़ोन के सारे मेनू, ऐप्स, मैसेज और किताबें आपको सुंदर व प्राकृतिक मानवीय आवाज़ में सुनाई दें।
+            </p>
+            <p style="margin-bottom: 16px;">
+                और केवल टाइप करते समय, यह कीबोर्ड अपने <strong>इन-बिल्ट eSpeak इंजन</strong> का उपयोग करता है। जैसे ही आप किसी अक्षर को छूते हैं, <strong>0 मिलीसेकंड लेटेंसी</strong> के साथ तुरंत आवाज़ आती है!
+            </p>
+            <div style="background-color: #0E1A29; border: 1px dashed #00B0FF; border-radius: 6px; padding: 12px 16px; margin-bottom: 12px;">
+                <p style="color: #80D8FF; font-weight: bold; margin-bottom: 4px;">🌐 वर्तमान भाषा समर्थन एवं भविष्य की योजना (Language Support & Roadmap):</p>
+                <p style="color: #ECEFF1; font-size: 0.95rem;">
+                    वर्तमान में यह कीबोर्ड <strong>English (अंग्रेज़ी)</strong> और <strong>Hindi (हिंदी फ़ोनेटिक ट्रांसलिट्रेशन)</strong> को पूर्णतः सपोर्ट करता है। आने वाले भविष्य के अपडेट्स में अन्य क्षेत्रीय व भारतीय भाषाओं (जैसे बंगाली, तमिल, तेलुगु, मराठी, गुजराती आदि) का समर्थन भी चरणबद्ध तरीके से जोड़ा जाएगा।
+                </p>
+            </div>
+        </section>
+
+        <!-- Key Features Section (Hindi & English) -->
+        <section class="section-card" aria-label="Features">
+            <h2>✨ मुख्य विशेषताएं (Key Features)</h2>
+            <ul>
+                <li><strong>शून्य कंपन (0% Vibration):</strong> कीबोर्ड में वाइब्रेशन पूरी तरह से शून्य (0%) रखा गया है, जिससे हाथों में थकान नहीं होती, ट्रेमर की समस्या नहीं आती और फ़ोन की बैटरी बचती है।</li>
+                <li><strong>इन-बिल्ट रियल-टाइम eSpeak TTS:</strong> बाहरी स्क्रीन रीडर की लेटेंसी के बिना, हर की (Key) पर उंगली रखते ही तुरंत शुद्ध और स्पष्ट फ़ॉर्मैंट आवाज़ सुनाई देती है। 2.25x वॉल्यूम बूस्ट के साथ स्पीकर पर बहुत साफ़ सुनाई देता है।</li>
+                <li><strong>सुगम हिंदी टाइपिंग (Phonetic Transliteration):</strong> हिंग्लिश में टाइप करें (जैसे <code>namaste</code>) और स्पेस दबाते ही वह अपने आप शुद्ध हिंदी <code>नमस्ते</code> में बदल जाएगा।</li>
+                <li><strong>बड़ा वॉइस टाइपिंग बटन (Voice Input):</strong> नंबर रो के ऊपर दाईं ओर नंबर 8 से 0 तक का बड़ा 3-कॉलम का वॉइस इनपुट बटन दिया गया है। उंगली रखते ही "voice input" बोलेगा और उंगली उठाते ही वॉइस डिक्टेशन शुरू हो जाएगा।</li>
+                <li><strong>वन-टच वेब शॉर्टकट्स (Web Shortcuts):</strong> वेब सर्च और यूआरएल टाइप करने के लिए <code>https://</code>, <code>www.</code>, <code>.com</code>, <code>.org</code>, <code>.in</code> के समर्पित बटन हैं जो एक टच में टाइप कर देते हैं।</li>
+                <li><strong>पूर्णतः ऑफ़लाइन एवं सुरक्षित (100% Offline):</strong> इस ऐप में इंटरनेट परमिशन की कोई आवश्यकता नहीं है। आपका टाइप किया गया कोई भी डेटा फ़ोन से बाहर नहीं जाता।</li>
+            </ul>
+        </section>
+
+        <!-- Installation Instructions -->
+        <section class="section-card" aria-label="Installation Guide">
+            <h2>📲 इंस्टॉल और एक्टिवेट करने का तरीका (How to Install)</h2>
+            <ol>
+                <li>ऊपर दिए गए <strong>"Download APK"</strong> बटन पर क्लिक करके APK फ़ाइल डाउनलोड करें।</li>
+                <li>डाउनलोड फ़ाइल पर क्लिक करें और यदि फ़ोन <em>"Install unknown apps"</em> पूछे, तो उसे अनुमति (Allow) दें।</li>
+                <li>ऐप इंस्टॉल होने के बाद <strong>eSpeak Indic Keyboard</strong> खोलें।</li>
+                <li>पहली बार खुलने पर <strong>Important Disclaimer</strong> दिखाई देगा, उसे पढ़कर <strong>"I Agree (स्वीकार है)"</strong> पर क्लिक करें।</li>
+                <li>ऐप में दिए गए बटन <strong>"1. Enable eSpeak Keyboard"</strong> पर क्लिक करें और कीबोर्ड लिस्ट में इसे ऑन करें।</li>
+                <li>फिर <strong>"2. Select as Active Keyboard"</strong> पर क्लिक करके इसे अपना मुख्य कीबोर्ड चुन लें।</li>
+                <li>ऐप में दिए गए टेस्ट बॉक्स में टाइप करके देखें!</li>
+            </ol>
+        </section>
+
+        <!-- Privacy Policy Section -->
+        <section class="section-card" aria-label="Privacy Policy">
+            <h2>🔒 गोपनीयता नीति (Privacy Policy)</h2>
+            <p><strong>eSpeak Indic Keyboard</strong> आपकी निजता और सुरक्षा का पूर्ण सम्मान करता है:</p>
+            <ul>
+                <li><strong>इंटरनेट अनुमति नहीं (No Internet Permission):</strong> ऐप के कोड में इंटरनेट परमिशन ही नहीं है। इसलिए कोई भी डेटा किसी सर्वर पर नहीं भेजा जा सकता।</li>
+                <li><strong>शून्य डेटा लॉगिंग (Zero Keystroke Logging):</strong> हम आपका कोई भी पासवर्ड, क्रेडिट कार्ड, मैसेज या टाइप किया गया शब्द न तो रिकॉर्ड करते हैं और न ही किसी जगह स्टोर करते हैं।</li>
+                <li><strong>माइक्रोफ़ोन का उपयोग (Microphone Usage):</strong> माइक्रोफ़ोन की अनुमति केवल वॉइस इनपुट (Speech-to-Text) के लिए ऑन-डिवाइस उपयोग होती है।</li>
+            </ul>
+        </section>
+
+        <!-- Disclaimer & Legal Notice -->
+        <section class="disclaimer-box" aria-label="Disclaimer and Legal Information">
+            <h2>⚖️ महत्वपूर्ण अस्वीकरण (Disclaimer & Notice)</h2>
+            <p>1. <strong>ओपन-सोर्स कोडबेस:</strong> इस ऐप को GitHub पर उपलब्ध ओपन-सोर्स <em>Indic Keyboard</em> कोडबेस तथा <em>eSpeak NG</em> टेक्स्ट-टू-स्पीच इंजन की सहायता से विकसित किया गया है।</p>
+            <p>2. <strong>विकास साधन (Development Tool):</strong> इस ऐप के निर्माण में Google के <em>Antigravity AI टूल</em> का उपयोग किया गया है। <strong>हरीश कुमार वर्मा (Harish Kumar Verma)</strong> ने केवल अपने निर्देश, विज़न और मार्गदर्शन प्रदान किए थे, जबकि ऐप की कोडिंग और तकनीकी ढांचा Antigravity टूल द्वारा तैयार किया गया है।</p>
+            <p>3. <strong>दायित्व अस्वीकरण (Limitation of Liability):</strong> यह सॉफ़्टवेयर 'जैसा है वैसा ही' (AS IS) पूर्णतः मुफ़्त और दृष्टिबाधित समाज की सुगमता के उद्देश्य से साझा किया जा रहा है। इस ऐप के उपयोग से होने वाली किसी भी तकनीकी समस्या, डेटा हानि या परिणाम के लिए हरीश कुमार वर्मा की कोई व्यक्तिगत या कानूनी ज़िम्मेदारी नहीं होगी।</p>
+            <p>4. <strong>उपयोगकर्ता सहमति:</strong> इस ऐप को डाउनलोड और उपयोग करने का अर्थ है कि आप इन सभी शर्तों से पूर्णतः सहमत हैं।</p>
+        </section>
+
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <p class="footer-highlight">© 2026 eSpeak Indic Keyboard</p>
+            <p style="color: #FFFFFF; font-size: 1.05rem; margin: 6px 0;"><strong>Conceived & Guided by Harish Kumar Verma Forever</strong></p>
+            <p>दृष्टिबाधित साथियों की आत्मनिर्भरता और सुगम टाइपिंग के लिए सदैव समर्पित।</p>
+            <p style="margin-top: 15px; font-size: 0.85rem; color: #666666;">Built with Open Source Indic Keyboard & eSpeak NG | Powered by Antigravity from Google</p>
+        </div>
+    </footer>
+
+</body>
+</html>
